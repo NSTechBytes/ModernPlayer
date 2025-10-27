@@ -1,0 +1,91 @@
+;============================================================================================================================;
+;                                                     Header                                                                 ;
+;============================================================================================================================;
+
+[Appearance_String]
+Meter=String
+Text=Appearance
+X=180
+Y=40
+FOntSize=40
+AntiAlias=1
+FontWeight=900
+FontFace=Ubuntu
+FontColor=255,255,255
+;============================================================================================================================;
+;                                                    Dark Mode                                                               ;
+;============================================================================================================================;
+
+[Dark_Mode_String]
+Meter=String
+Text=Dark Mode
+Y=150
+MeterStyle=Left_String
+
+[Dark_Mode_Image]
+Meter=Image
+ImageName=#@#Images\Config\on.png
+W=40
+H=40
+X=670
+Y=145
+LeftMouseUpAction=[!WriteKeyValue Variables DarkMode 0 "#@#Variables.inc"][!WriteKeyValue Variables Font_Color  10,10,10 "#@#Variables.inc"][!WriteKeyValue Variables BackGround_Color 255,255,255 "#@#Variables.inc"][!WriteKeyValue Variables Background_Alpha 200 "#@#Variables.inc"][!WriteKeyValue Variables Scale 1 "#@#Variables.inc"][!Refresh "ModernPlayer\Main"][!Refresh]
+
+[Dark_Mode_Image1]
+Meter=Image
+ImageName=#@#Images\Config\off.png
+W=40
+H=40
+X=670
+Y=145
+Hidden=#DarkMode#
+LeftMouseUpAction=[!WriteKeyValue Variables DarkMode 1 "#@#Variables.inc"][!WriteKeyValue Variables Font_Color  255,255,255 "#@#Variables.inc"][!WriteKeyValue Variables BackGround_Color 10,10,10 "#@#Variables.inc"][!WriteKeyValue Variables Background_Alpha 200 "#@#Variables.inc"][!WriteKeyValue Variables Scale 1 "#@#Variables.inc"][!Refresh "ModernPlayer\Main"][!Refresh]
+
+[Div_1]
+Meter=Shape
+MeterStyle=Divider
+;============================================================================================================================;
+;                                                     BackGround Background_Alpha                                                     ;
+;============================================================================================================================;
+
+[Background_Alpha_String]
+Meter=String
+Text=BackGround Background_Alpha
+MeterStyle=Left_String
+
+[Background_Alpha_Shape]
+Meter=Shape
+X=615
+Y=-8r
+Shape=Rectangle 0,0,100,40,8 |StrokeWidth 0 | Extend This
+This=Fillcolor 17,24,39,100
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput ExecuteBatch 1"]
+MouseOverAction=[!SetOption #CURRENTSECTION# This "FillColor 17,24,39,50"][!UpdateMeter *][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# This "FillColor 17,24,39,100"][!UpdateMeter *][!Redraw]
+
+[Background_Alpha_Text]
+Meter=String
+Text=#Background_Alpha#
+MeterStyle=Box_Text
+;============================================================================================================================;
+;                                                     Measures                                                               ;
+;============================================================================================================================;
+
+[MeterInput]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontFace=Segoe UI
+FontSize=15
+X=615
+Y=197
+W=100
+H=40
+AntiAlias=1
+FocusDismiss=1
+SolidColor=17,24,39
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables  "$UserInput$""#@#Variables.inc"][!Refresh "ModernPlayer\Main"][!Refresh]
+DefaultValue="#Background_Alpha#"
+DynamicVariables=1

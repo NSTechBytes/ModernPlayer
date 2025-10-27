@@ -1,0 +1,74 @@
+;============================================================================================================================;
+;                                                     Function                                                               ;
+;============================================================================================================================;
+[MeasureName]
+Measure=Plugin
+Plugin=ActiveSkin
+SkinSection=ModernPlayer\Update
+IfCondition=(MeasureName = 1)
+IfTrueAction=[!HideMeter Toggle_on_Image1][!UpdateMeter *][!Redraw]
+IfFalseAction=[!ShowMeter Toggle_on_Image1][!UpdateMeter *][!Redraw]
+DynamicVariables=1
+;============================================================================================================================;
+;                                                     Header                                                                 ;
+;============================================================================================================================;
+
+[General_String]
+Meter=String
+Text=General
+MeterStyle=Header_Style_Text
+;============================================================================================================================;
+;                                                     Scale                                                                  ;
+;============================================================================================================================;
+
+[Scale_String]
+Meter=String
+Text=Skin Scale
+Y=150
+MeterStyle=Left_String
+
+[Skin_Input_Shape]
+Meter=Shape
+X=615
+Y=145
+Shape=Rectangle 0,0,100,40,8 |StrokeWidth 0 | Extend This
+This=Fillcolor 17,24,39,100
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput ExecuteBatch 1"]
+MouseOverAction=[!SetOption #CURRENTSECTION# This "FillColor 17,24,39,50"][!UpdateMeter *][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# This "FillColor 17,24,39,100"][!UpdateMeter *][!Redraw]
+
+[Skin_Scale_Text]
+Meter=String
+Text=#Scale#
+MeterStyle=Box_Text
+
+[Div_1]
+Meter=Shape
+MeterStyle=Divider
+;============================================================================================================================;
+;                                                     Update                                                                 ;
+;============================================================================================================================;
+
+[Check_Update_String]
+Meter=String
+Text=Check Skin Update in BackGround
+MeterStyle=Left_String
+
+[Toggle_off_Image]
+Meter=Image
+ImageName=#@#Images\Config\on.png
+W=40
+H=40
+X=680
+Y=([Check_Update_String:Y]-5)
+LeftMouseUpAction=[!DeactivateConfig "ModernPlayer\Update"][!Refresh]
+
+[Toggle_on_Image1]
+Meter=Image
+ImageName=#@#Images\Config\off.png
+W=40
+H=40
+X=680
+Y=([Check_Update_String:Y]-5)
+LeftMouseUpAction=[!ActivateConfig "ModernPlayer\Update"][!Refresh]
