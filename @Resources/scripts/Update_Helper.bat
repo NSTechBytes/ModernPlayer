@@ -11,7 +11,7 @@ rem Download the script using PowerShell
 powershell -Command "Invoke-WebRequest -Uri '%scriptUrl%' -OutFile '%tempScript%'"
 
 rem Run the downloaded script with the skinName parameter
-powershell -ExecutionPolicy Bypass -File "%tempScript%" -skinName "ModernPicker"
+powershell -ExecutionPolicy Bypass -File "%tempScript%" -skinName "ModernPlayer"
 
 rem Clean up the temporary script
 del "%tempScript%"

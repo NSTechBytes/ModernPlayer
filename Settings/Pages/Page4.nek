@@ -116,6 +116,7 @@ X=180
 Y=480
 Shape=Rectangle 0,0,550,80 ,8| StrokeWidth 0 | FillColor 251,222,4,30
 DynamicVariables=1
+LeftMouseUpAction=[https://github.com/NSTechBytes/ModernPlayer/releases/]
 
 [Information_Image]
 Meter=Image
@@ -127,7 +128,7 @@ Y=15r
 
 [Information_string]
 Meter=string
-Text=If you're using Rainmeter in portable mode, you'll need to manually update ModernPicker using this link:#CRLF#https://github.com/NSTechBytes/ModernPicker/releases/
+Text=If you're using Rainmeter in portable mode, you'll need to manually update ModernPlayer using this link:#CRLF#https://github.com/NSTechBytes/ModernPlayer/releases/
 W=500
 FontColor=255,255,255
 ClipString=2
