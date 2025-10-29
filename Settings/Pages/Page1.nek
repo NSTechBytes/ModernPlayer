@@ -72,3 +72,24 @@ H=40
 X=680
 Y=([Check_Update_String:Y]-5)
 LeftMouseUpAction=[!ActivateConfig "ModernPlayer\Update"][!Refresh]
+
+;============================================================================================================================;
+;                                                     Measure                                                                ;
+;============================================================================================================================;
+
+[MeterInput]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontSize=15
+X=[Skin_Input_Shape:X]
+Y=[Skin_Input_Shape:Y]
+W=100
+H=40
+AntiAlias=1
+FocusDismiss=1
+SolidColor=17,24,39
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables Scale "$UserInput$" "#@#Variables.inc"][!Refresh "ModernPlayer\Main"][!Refresh]
+DefaultValue="#Scale#"
+DynamicVariables=1
