@@ -1,4 +1,11 @@
-
 {
-    "plugins":["FrostBehind","MediaPlayer","PowershellRM"]
+    "name": "ModernPlayer",
+    "author": "nstechbytes",
+    "load": "ModernPlayer\\Main\\Main.ini",
+    "plugins": [
+        "FrostBehind",
+        "MediaPlayer",
+        "PowershellRM",
+        "ActiveSkin"
+    ]
 }
