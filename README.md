@@ -25,4 +25,4 @@ Created by **nstechbytes**
 
 ## License
 
-This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License - see the LICENSE.txt file for details.
+This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License - see the [LICENSE](LICENSE) file for details.
